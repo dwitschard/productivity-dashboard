@@ -22,7 +22,7 @@ export default function Home() {
         }
     }
 
-    const { data: session, status } = useSession()
+    const { status } = useSession()
 
     if (status === "loading" || status === "authenticated") {
         if (status === "authenticated") {
