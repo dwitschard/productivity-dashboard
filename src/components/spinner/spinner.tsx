@@ -1,6 +1,6 @@
 import {FC} from "react";
 
-export const Spinner: FC<void> = () => {
+export const Spinner: FC<{}> = () => {
     return (
         <div role="status">
             <svg aria-hidden="true" className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
