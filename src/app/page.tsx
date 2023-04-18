@@ -1,7 +1,7 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { Hero } from '@/components/hero/hero';
+import { Hero } from '@/components/landing-page/hero/hero';
 
 const Home=()=> {
   const handler = {

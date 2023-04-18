@@ -1,6 +1,6 @@
 'use client';
 
-import './(root)/globals.css';
+import '@/app/(web-app)/globals.css';
 import { SessionProvider } from 'next-auth/react';
 
 const RootLayout =({ children }: { children: React.ReactNode })=> {
