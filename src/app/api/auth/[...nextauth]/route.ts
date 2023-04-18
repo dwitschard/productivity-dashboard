@@ -8,8 +8,7 @@ export const handler: NextAuthOptions = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
-      clientSecret: process.env.GOOGLE_SECRET!,
-      callbackUrl: process.env.NEXTAUTH_URL + '/api/auth/callback/google'
+      clientSecret: process.env.GOOGLE_SECRET!
     })
   ],
   theme: {
@@ -19,6 +18,10 @@ export const handler: NextAuthOptions = NextAuth({
     async jwt({ token }) {
       // token.userRole = "admin"
       return token;
+    },
+    async redirect() {
+      // token.userRole = "admin"
+      return process.env.NEXTAUTH_URL + '/api/auth/callback/google';
     }
   }
 });
