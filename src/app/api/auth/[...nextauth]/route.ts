@@ -21,6 +21,9 @@ export const handler: NextAuthOptions = NextAuth({
     },
     async redirect({ url, baseUrl }) {
       // Allows relative callback URLs
+      console.log('url', url);
+      console.log('baseUrl', baseUrl);
+
       if (url.startsWith('/')) return `${baseUrl}${url}`;
       // Allows callback URLs on the same origin
       else if (new URL(url).origin === baseUrl) return url;
