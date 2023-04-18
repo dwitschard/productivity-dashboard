@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
 
 const MyPage = () => {
   useEffect(() => {
-    signIn('google');
+    signOut({ callbackUrl: '/', redirect: true });
   }, []);
 
   return <></>;
