@@ -12,7 +12,7 @@ export const handler: NextAuthOptions = NextAuth({
     }),
   ],
   theme: {
-    colorScheme: "light",
+    colorScheme: "dark",
   },
   callbacks: {
     async jwt({ token }) {
