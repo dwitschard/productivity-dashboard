@@ -1,6 +1,7 @@
 import PasteBin from '@/components/paste-bin/paste-bin';
 import News from '@/components/news/news';
 import CodePlayground from '@/components/code-playground/code-playground';
+import Helpers from '@/components/helpers/helpers';
 
 export default function MePage() {
   return (
@@ -8,6 +9,7 @@ export default function MePage() {
       <News />
       <PasteBin />
       <CodePlayground />
+      <Helpers />
     </div>
   );
 }
