@@ -19,11 +19,11 @@ export const handler: NextAuthOptions = NextAuth({
     async jwt({ token }) {
       // token.userRole = "admin"
       return token;
-    },
-    async redirect() {
+    }
+    /*    async redirect() {
       // token.userRole = "admin"
       return process.env.NEXTAUTH_URL + '/api/auth/callback/google';
-    }
+    }*/
   }
 });
 
