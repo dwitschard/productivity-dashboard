@@ -23,11 +23,9 @@ export const handler: NextAuthOptions = NextAuth({
       // Allows relative callback URLs
       console.log('url', url);
       console.log('baseUrl', baseUrl);
+      console.log('process.env.NEXTAUTH_URL', process.env.NEXTAUTH_URL);
 
-      if (url.startsWith('/')) return `${baseUrl}${url}`;
-      // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url;
-      return baseUrl;
+      return process.env.NEXTAUTH_URL!;
     }
   }
 });
