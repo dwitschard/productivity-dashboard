@@ -7,6 +7,7 @@ export const handler: NextAuthOptions = NextAuth({
   // https://next-auth.js.org/configuration/providers/oauth
   providers: [
     GoogleProvider({
+      id: 'google-productivity-app',
       clientId: process.env.GOOGLE_ID!,
       clientSecret: process.env.GOOGLE_SECRET!
     })
