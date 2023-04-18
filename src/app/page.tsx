@@ -6,7 +6,10 @@ import { Hero } from '@/components/landing-page/hero/hero';
 const Home = () => {
   const handler = {
     onLogin: () => {
-      signIn('google', { callbackUrl: process.env.NEXTAUTH_URL + '/api/auth/callback/google' });
+      fetch('/api/environment').then((envUrl) => {
+        console.log(envUrl);
+        signIn('google', { callbackUrl: envUrl + '/api/auth/callback/google' });
+      });
     }
   };
 
