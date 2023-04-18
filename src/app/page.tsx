@@ -6,12 +6,13 @@ import { Hero } from '@/components/landing-page/hero/hero';
 const Home = () => {
   const handler = {
     onLogin: () => {
-      fetch('/api/environment').then((envUrl) => {
+      /*fetch('/api/environment').then((envUrl) => {
         envUrl.json().then((env) => {
           console.log(env.url);
-          signIn('google', { callbackUrl: env.url + '/api/auth/callback/google' });
+
         });
-      });
+      });*/
+      signIn('google');
     }
   };
 

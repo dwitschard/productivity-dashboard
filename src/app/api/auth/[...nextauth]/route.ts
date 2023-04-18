@@ -7,7 +7,7 @@ export const handler: NextAuthOptions = NextAuth({
   // https://next-auth.js.org/configuration/providers/oauth
   providers: [
     GoogleProvider({
-      id: 'google',
+      // id: 'google',
       clientId: process.env.GOOGLE_ID!,
       clientSecret: process.env.GOOGLE_SECRET!
     })
@@ -16,9 +16,6 @@ export const handler: NextAuthOptions = NextAuth({
     colorScheme: 'dark'
   },
   debug: true,
-  session: {
-    strategy: 'jwt'
-  },
   callbacks: {
     async jwt({ token }) {
       // token.userRole = "admin"
