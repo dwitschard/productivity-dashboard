@@ -7,8 +7,10 @@ const Home = () => {
   const handler = {
     onLogin: () => {
       fetch('/api/environment').then((envUrl) => {
-        console.log(envUrl);
-        signIn('google', { callbackUrl: envUrl + '/api/auth/callback/google' });
+        envUrl.json().then((env) => {
+          console.log(env.url);
+          signIn('google', { callbackUrl: env.url + '/api/auth/callback/google' });
+        });
       });
     }
   };

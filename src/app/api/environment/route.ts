@@ -1,5 +1,7 @@
-import { NextRequest } from 'next/server';
-
-export async function GET() {
-  return new Response(JSON.stringify(process.env.NEXTAUTH_URL));
+export async function GET(): Promise<{ url: string }> {
+  return new Response(
+    JSON.stringify({
+      url: process.env.NEXTAUTH_URL!
+    })
+  );
 }
