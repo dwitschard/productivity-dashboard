@@ -7,7 +7,6 @@ export const handler: NextAuthOptions = NextAuth({
   // https://next-auth.js.org/configuration/providers/oauth
   providers: [
     GoogleProvider({
-      id: 'google-productivity-app',
       clientId: process.env.GOOGLE_ID!,
       clientSecret: process.env.GOOGLE_SECRET!
     })
@@ -15,18 +14,11 @@ export const handler: NextAuthOptions = NextAuth({
   theme: {
     colorScheme: 'dark'
   },
-  session: {
-    strategy: 'jwt'
-  },
   callbacks: {
     async jwt({ token }) {
       // token.userRole = "admin"
       return token;
     }
-    /*    async redirect() {
-          // token.userRole = "admin"
-          return process.env.NEXTAUTH_URL + '/api/auth/callback/google';
-        }*/
   }
 });
 
