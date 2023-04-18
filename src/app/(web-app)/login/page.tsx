@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react';
 
 const MyPage = () => {
   useEffect(() => {
-    signIn('google');
+    signIn('google', { callbackUrl: process.env.NEXTAUTH_URL + '/api/auth/callback/google' });
   }, []);
 
   return <></>;
