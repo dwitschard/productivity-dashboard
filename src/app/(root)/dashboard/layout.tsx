@@ -1,3 +1,4 @@
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout =({ children }: { children: React.ReactNode }) =>{
   return <>{children}</>;
 }
+export default RootLayout;
