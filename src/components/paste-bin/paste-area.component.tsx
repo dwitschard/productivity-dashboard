@@ -22,7 +22,7 @@ export const PasteAreaComponent: React.FC<PasteAreaProps> = ({
         }></textarea>
 
       <button
-        type={'submit'}
+        type={'button'}
         onClick={() => {
           onSubmitHandler(text);
           setText('');
