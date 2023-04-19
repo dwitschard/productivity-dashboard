@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { PlaygroundType } from '@/components/code-playground/playground-type';
 
@@ -17,8 +17,12 @@ const directLinks: PlaygroundType[] = [
 ];
 const CodePlaygroundWidget: FC<{}> = () => {
   const [filteredTemplates, setFilteredTemplates] = useState([...directLinks]);
-  const filterTemplates = (event) => {
-    setFilteredTemplates(directLinks.filter((type) => type.includes(event.target.value)));
+  const filterTemplates = (event: FormEvent<HTMLInputElement>) => {
+    setFilteredTemplates(
+      directLinks.filter((type) =>
+        type.toLowerCase().includes(event.currentTarget.value.toLowerCase())
+      )
+    );
   };
 
   return (
