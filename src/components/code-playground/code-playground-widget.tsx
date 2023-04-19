@@ -1,28 +1,64 @@
 'use client';
 
 import { FC, FormEvent, useState } from 'react';
-import Link from 'next/link';
-import { PlaygroundType } from '@/components/code-playground/playground-type';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import SearchInput from '@/components/shared/search-input/search-input';
+import TemplateCard from '@/components/code-playground/template-card';
+import { PlaygroundTemplate } from '@/components/code-playground/playground-template';
 
-const defaultTemplates: PlaygroundType[] = [
-  'node',
-  'nextjs',
-  'react-ts',
-  'angular',
-  'vue',
-  'js',
-  'typescript',
-  'rxjs',
-  'web-platform'
+const defaultPlaygroundTemplates: PlaygroundTemplate[] = [
+  {
+    type: 'node',
+    title: 'Node.js',
+    description: 'Node.js playground'
+  },
+  {
+    type: 'nextjs',
+    title: 'Next.js',
+    description: 'Next.js playground'
+  },
+  {
+    type: 'react-ts',
+    title: 'React',
+    description: 'React playground'
+  },
+  {
+    type: 'angular',
+    title: 'Angular',
+    description: 'Angular playground'
+  },
+  {
+    type: 'vue',
+    title: 'Vue',
+    description: 'Vue playground'
+  },
+  {
+    type: 'js',
+    title: 'Vanilla JS',
+    description: 'Vanilla JS playground'
+  },
+  {
+    type: 'typescript',
+    title: 'TypeScript',
+    description: 'TypeScript playground'
+  },
+  {
+    type: 'rxjs',
+    title: 'RxJS',
+    description: 'RxJS playground'
+  },
+  {
+    type: 'web-platform',
+    title: 'Web Platform',
+    description: 'Web Platform playground'
+  }
 ];
+
 const CodePlaygroundWidget: FC<{}> = () => {
-  const [filteredTemplates, setFilteredTemplates] = useState([...defaultTemplates]);
+  const [filteredTemplates, setFilteredTemplates] = useState([...defaultPlaygroundTemplates]);
   const filterTemplates = (event: FormEvent<HTMLInputElement>) => {
     setFilteredTemplates(
-      defaultTemplates.filter((type) =>
-        type.toLowerCase().includes(event.currentTarget.value.toLowerCase())
+      defaultPlaygroundTemplates.filter((template) =>
+        template.type.toLowerCase().includes(event.currentTarget.value.toLowerCase())
       )
     );
   };
@@ -32,15 +68,9 @@ const CodePlaygroundWidget: FC<{}> = () => {
       <div className={'rounded-md bg-white py-6 px-8 flex flex-col items-start gap-4'}>
         <h2 className={'text-lg leading-7 font-medium'}>Code Playground</h2>
         <SearchInput onInput={filterTemplates}></SearchInput>
-        <div className={'flex flex-wrap gap-5'}>
-          {filteredTemplates.map((type) => (
-            <>
-              <Link
-                href={{ pathname: '/code-playground', query: { playgroundType: type } }}
-                className="bg-blue-100 text-black py-5 px-6">
-                {type.toLocaleUpperCase()}
-              </Link>
-            </>
+        <div className={'w-full grid grid-cols-3 gap-4'}>
+          {filteredTemplates.map((template) => (
+            <TemplateCard key={template.type} playgroundTemplate={template} />
           ))}
         </div>
       </div>
