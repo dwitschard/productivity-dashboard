@@ -6,7 +6,7 @@ import { PlaygroundType } from '@/components/code-playground/playground-type';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import SearchInput from '@/components/shared/search-input/search-input';
 
-const directLinks: PlaygroundType[] = [
+const defaultTemplates: PlaygroundType[] = [
   'node',
   'nextjs',
   'react-ts',
@@ -18,10 +18,10 @@ const directLinks: PlaygroundType[] = [
   'web-platform'
 ];
 const CodePlaygroundWidget: FC<{}> = () => {
-  const [filteredTemplates, setFilteredTemplates] = useState([...directLinks]);
+  const [filteredTemplates, setFilteredTemplates] = useState([...defaultTemplates]);
   const filterTemplates = (event: FormEvent<HTMLInputElement>) => {
     setFilteredTemplates(
-      directLinks.filter((type) =>
+      defaultTemplates.filter((type) =>
         type.toLowerCase().includes(event.currentTarget.value.toLowerCase())
       )
     );
