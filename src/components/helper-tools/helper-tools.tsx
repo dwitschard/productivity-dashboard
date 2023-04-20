@@ -53,7 +53,7 @@ const HelperTools: FC<{}> = () => {
       {expanded === '' && (
         <>
           <SearchInput onInput={filterTools}></SearchInput>
-          <div className={'grid grid-cols-2 gap-4'}>
+          <div className={'w-full grid grid-cols-2 lg:grid-cols-3 gap-4'}>
             {tools.map((name) => (
               <button
                 key={name}
