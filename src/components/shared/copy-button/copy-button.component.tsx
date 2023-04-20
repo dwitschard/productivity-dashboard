@@ -1,5 +1,6 @@
 import { ClipboardDocumentIcon } from '@heroicons/react/24/outline';
 import { FC, useState } from 'react';
+
 export interface CopyButtonProps {
   onCopy: () => void;
   disabled?: boolean;
@@ -12,6 +13,10 @@ export const CopyButton: FC<CopyButtonProps> = ({
   disabled
 }: CopyButtonProps) => {
   const [showCopyLabel, setShowCopyLabel] = useState(false);
+
+  const getTextColor = (): string => {
+    return disabled ? 'text-gray-400' : 'text-white';
+  };
 
   return (
     <button
@@ -32,7 +37,7 @@ export const CopyButton: FC<CopyButtonProps> = ({
         </div>
       )}
 
-      <ClipboardDocumentIcon className={'w-4 h-4 text-white'} />
+      <ClipboardDocumentIcon className={'w-4 h-4 text-white ' + getTextColor()} />
     </button>
   );
 };
