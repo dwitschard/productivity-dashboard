@@ -10,7 +10,7 @@ export const PasteAreaComponent: React.FC<PasteAreaProps> = ({
   const [text, setText] = useState<string>('');
 
   return (
-    <form className="flex flex-col gap-3">
+    <form className="flex flex-col gap-3 px-8 py-4">
       <textarea
         id="message"
         name="message"

@@ -7,3 +7,11 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+.mainGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2,  550px);
+    grid-gap: 32px;
+    min-height: 0;
+}
+

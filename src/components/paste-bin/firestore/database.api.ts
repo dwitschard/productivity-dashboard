@@ -1,12 +1,14 @@
 import {
   addDoc,
+  deleteDoc,
   collection,
   DocumentData,
   getDocs,
   onSnapshot,
   query,
   QueryDocumentSnapshot,
-  where
+  where,
+  doc
 } from '@firebase/firestore';
 import { database } from '../../../../firebase.config';
 
@@ -42,8 +44,11 @@ export const pasteBinWithUpdates = async (
 };
 
 export const addToCollection = async (userId: string, textToPersist: string) => {
-  console.log(mapToPasteBin(userId, textToPersist));
   addDoc(collection(database, 'pastebin'), mapToPasteBin(userId, textToPersist));
+};
+
+export const removeFromCollection = async (item: PasteBin) => {
+  deleteDoc(doc(collection(database, 'pastebin'), item.id));
 };
 
 const mapToPasteBin = (userId: string, data: string): PasteBin => {
