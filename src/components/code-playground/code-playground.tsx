@@ -18,7 +18,7 @@ const CodePlayground = ({ playgroundTemplate }: CodePlaygroundProps) => {
   };
 
   return (
-    <div className="h-full flex flex-col items-start gap-5 px-9 pt-4 pb-16">
+    <div className="h-screen flex flex-col items-start gap-5 px-9 pt-4 pb-16">
       <div className={'w-full flex flex-row justify-between items-center'}>
         <div className={'flex-1'}>
           <Link
