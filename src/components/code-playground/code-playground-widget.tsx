@@ -9,47 +9,47 @@ const defaultPlaygroundTemplates: PlaygroundTemplate[] = [
   {
     type: 'node',
     title: 'Node.js',
-    description: 'Node.js playground'
+    description: 'JavaScript'
   },
   {
     type: 'nextjs',
     title: 'Next.js',
-    description: 'Next.js playground'
+    description: 'TypeScript'
   },
   {
     type: 'react-ts',
     title: 'React',
-    description: 'React playground'
+    description: 'Typescript'
   },
   {
     type: 'angular',
     title: 'Angular',
-    description: 'Angular playground'
+    description: 'Typescript'
   },
   {
     type: 'vue',
     title: 'Vue',
-    description: 'Vue playground'
+    description: 'JavaScript'
   },
   {
     type: 'js',
     title: 'Vanilla JS',
-    description: 'Vanilla JS playground'
+    description: 'JavaScript'
   },
   {
     type: 'typescript',
     title: 'TypeScript',
-    description: 'TypeScript playground'
+    description: 'Typescript'
   },
   {
     type: 'rxjs',
     title: 'RxJS',
-    description: 'RxJS playground'
+    description: 'Typescript'
   },
   {
     type: 'web-platform',
     title: 'Web Platform',
-    description: 'Web Platform playground'
+    description: 'HTML / CSS / JS'
   }
 ];
 
