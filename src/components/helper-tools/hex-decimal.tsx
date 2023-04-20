@@ -39,7 +39,7 @@ const HexDecimal: FC<{}> = () => {
           <input
             type="text"
             placeholder="6872"
-            className="px-2 py-3 w-full shadow-sm rounded border border-gray-300"
+            className="pl-2 pr-16 py-3 w-full shadow-sm rounded border border-gray-300"
             value={dec}
             onChange={(e) => calculate(e.target.value, 'dec')}
           />
@@ -56,7 +56,7 @@ const HexDecimal: FC<{}> = () => {
           <input
             type="text"
             placeholder="1ad8"
-            className="px-2 py-3 pr-10 w-full shadow-sm rounded border border-gray-300"
+            className="pl-2 pr-16 py-3 w-full shadow-sm rounded border border-gray-300"
             value={hex}
             onChange={(e) => calculate(e.target.value, 'hex')}
           />
@@ -73,7 +73,7 @@ const HexDecimal: FC<{}> = () => {
           <input
             type="text"
             placeholder="15330"
-            className="px-2 py-3 w-full shadow-sm rounded border border-gray-300"
+            className="pl-2 pr-16 py-3 w-full shadow-sm rounded border border-gray-300"
             value={oct}
             onChange={(e) => calculate(e.target.value, 'oct')}
           />
@@ -90,7 +90,7 @@ const HexDecimal: FC<{}> = () => {
           <input
             type="text"
             placeholder="1101011011000"
-            className="px-2 py-3 w-full shadow-sm rounded border border-gray-300"
+            className="pl-2 pr-16 py-3 w-full shadow-sm rounded border border-gray-300"
             value={bin}
             onChange={(e) => calculate(e.target.value, 'bin')}
           />
