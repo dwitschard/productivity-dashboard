@@ -35,7 +35,7 @@ const HexDecimal: FC<{}> = () => {
     <div className="grid grid-cols-2 gap-8  w-full">
       <div>
         <h3 className="text-sm leading-5 mb-1 font-medium">Decimal</h3>
-        <div className={'flex w-full relative isolate'}>
+        <div className={'flex w-full relative isolate group'}>
           <input
             type="text"
             placeholder="6872"
@@ -43,12 +43,16 @@ const HexDecimal: FC<{}> = () => {
             value={dec}
             onChange={(e) => calculate(e.target.value, 'dec')}
           />
-          <ButtonInputField disabled={!dec} onCopy={() => navigator.clipboard.writeText(dec)} />
+          <ButtonInputField
+            className={'opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300'}
+            disabled={!dec}
+            onCopy={() => navigator.clipboard.writeText(dec)}
+          />
         </div>
       </div>
       <div>
         <h3 className="text-sm leading-5 mb-1 font-medium">Hexadecimal</h3>
-        <div className="flex w-full relative isolate">
+        <div className="flex w-full relative isolate group">
           <input
             type="text"
             placeholder="1ad8"
@@ -56,12 +60,16 @@ const HexDecimal: FC<{}> = () => {
             value={hex}
             onChange={(e) => calculate(e.target.value, 'hex')}
           />
-          <ButtonInputField disabled={!hex} onCopy={() => navigator.clipboard.writeText(hex)} />
+          <ButtonInputField
+            className={'opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300'}
+            disabled={!hex}
+            onCopy={() => navigator.clipboard.writeText(hex)}
+          />
         </div>
       </div>
       <div>
         <h3 className="text-sm leading-5 mb-1 font-medium">Octal</h3>
-        <div className={'flex w-full relative isolate'}>
+        <div className={'flex w-full relative isolate group'}>
           <input
             type="text"
             placeholder="15330"
@@ -69,12 +77,16 @@ const HexDecimal: FC<{}> = () => {
             value={oct}
             onChange={(e) => calculate(e.target.value, 'oct')}
           />
-          <ButtonInputField disabled={!oct} onCopy={() => navigator.clipboard.writeText(oct)} />
+          <ButtonInputField
+            className={'opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300'}
+            disabled={!oct}
+            onCopy={() => navigator.clipboard.writeText(oct)}
+          />
         </div>
       </div>
       <div>
         <h3 className="text-sm leading-5 mb-1 font-medium">Binary</h3>
-        <div className={'flex w-full relative isolate'}>
+        <div className={'flex w-full relative isolate group'}>
           <input
             type="text"
             placeholder="1101011011000"
@@ -82,7 +94,11 @@ const HexDecimal: FC<{}> = () => {
             value={bin}
             onChange={(e) => calculate(e.target.value, 'bin')}
           />
-          <ButtonInputField disabled={!bin} onCopy={() => navigator.clipboard.writeText(bin)} />
+          <ButtonInputField
+            className={'opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300'}
+            disabled={!bin}
+            onCopy={() => navigator.clipboard.writeText(bin)}
+          />
         </div>
       </div>
     </div>
