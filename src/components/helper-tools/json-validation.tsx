@@ -2,6 +2,7 @@
 import { ClipboardDocumentIcon } from '@heroicons/react/24/outline';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { FC, useState } from 'react';
+import { ButtonInputField } from '../shared/button-input-field/button-input-field';
 
 const JsonValidation: FC<{}> = () => {
   const [message, setMessage] = useState('Paste or type your json in the box below');
@@ -78,7 +79,7 @@ const JsonValidation: FC<{}> = () => {
           <p className="text-sm leading-5">{message}</p>
         </div>
       </div>
-      <div className="editor w-full relative">
+      <div className="editor w-full relative isolate group">
         <textarea
           cols={5}
           rows={10}
@@ -91,11 +92,16 @@ const JsonValidation: FC<{}> = () => {
           onScroll={() => scrollLineNumbers()}
           className="code w-5/6 h-60 pl-1 resize-none overflow-x-auto overflow-y-scroll border rounded-r border-gray-300"></textarea>
 
-        <button
-          className="w-10 p-1 absolute bottom-3 right-6 rounded bg-indigo-500 hover:bg-indigo-600 text-white"
-          onClick={() => copyToClipboard()}>
-          <ClipboardDocumentIcon />
-        </button>
+        <ButtonInputField
+          className={
+            'mb-1 mr-4 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300'
+          }
+          onCopy={() =>
+            navigator.clipboard.writeText(
+              (document.querySelector('textarea.code') as HTMLTextAreaElement).value
+            )
+          }
+        />
       </div>
     </>
   );
