@@ -9,6 +9,7 @@ import {
 import styles from './paste-bin.module.css';
 import { PasteBin } from '@/components/paste-bin/firestore/database.api';
 import { useState } from 'react';
+import { CopyButton } from '@/components/shared/copy-button/copy-button.component';
 
 export interface PasteBinElementProps {
   element: PasteBin;
@@ -18,7 +19,6 @@ export interface PasteBinElementProps {
 
 export const PasteBinElement: React.FC<PasteBinElementProps> = ({ element, onDelete, onCopy }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showCopyLabel, setShowCopyLabel] = useState(false);
 
   const getClasses = () =>
     isExpanded ? 'min-w-0 break-words' : 'overflow-hidden whitespace-nowrap overflow-ellipsis';
@@ -47,23 +47,11 @@ export const PasteBinElement: React.FC<PasteBinElementProps> = ({ element, onDel
           onClick={() => onDelete(element)}>
           <TrashIcon className={'w-4 h-4 text-white'} />
         </button>
-        <button
-          className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 bg-blue-500 rounded border-0 p-2"
-          onClick={() => {
-            onCopy(element);
-            setShowCopyLabel(true);
-            setTimeout(() => {
-              setShowCopyLabel(false);
-            }, 500);
-          }}>
-          {showCopyLabel && (
-            <div className={'bg-black absolute -mt-12 -ml-5 rounded p-1 text-xs text-white'}>
-              Copied!
-            </div>
-          )}
 
-          <ClipboardDocumentIcon className={'w-4 h-4 text-white'} />
-        </button>
+        <CopyButton
+          className={'opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300'}
+          onCopy={() => onCopy(element)}
+        />
       </div>
     </div>
   );
