@@ -2,6 +2,7 @@ import News from '@/components/news/news';
 import CodePlaygroundWidget from '@/components/code-playground/code-playground-widget';
 import HelperTools from '@/components/helper-tools/helper-tools';
 import PasteBinContainer from '@/components/paste-bin/paste-bin.container';
+import GptSearch from '@/components/gpt-search/gpt-search';
 
 export default function DashboardPage() {
   return (
@@ -12,6 +13,7 @@ export default function DashboardPage() {
         <PasteBinContainer />
         <CodePlaygroundWidget />
         <HelperTools />
+        <GptSearch />
       </div>
     </div>
   );
