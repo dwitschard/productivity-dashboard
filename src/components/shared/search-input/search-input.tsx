@@ -11,7 +11,7 @@ const SearchInput = (props: SearchInputProps) => {
   return (
     <div
       className={
-        'rounded-md border border-gray-300 shadow-sm flex flex-row items-center gap-2.5 px-2.5'
+        'max-w-full rounded-md border border-gray-300 shadow-sm flex flex-row items-center gap-2.5 px-2.5'
       }>
       <MagnifyingGlassIcon className={'text-gray-900 w-4 h-4'} height={10} width={10} />
 

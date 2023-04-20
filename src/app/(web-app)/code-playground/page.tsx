@@ -3,6 +3,7 @@
 import CodePlayground from '@/components/code-playground/code-playground';
 import { PlaygroundType } from '@/components/code-playground/playground-type';
 import { useSearchParams } from 'next/navigation';
+import { defaultPlaygroundTemplates } from '@/components/code-playground/playground-templates';
 
 interface CodePlaygroundQueryParams {
   playgroundType: PlaygroundType;
@@ -16,7 +17,11 @@ const CodePlaygroundPage = () => {
     playgroundType = 'typescript';
   }
 
-  return <CodePlayground playgroundType={playgroundType} />;
+  const playgroundTemplate = defaultPlaygroundTemplates.filter(
+    (template) => template.type === playgroundType
+  )[0];
+
+  return <CodePlayground playgroundTemplate={playgroundTemplate} />;
 };
 
 export default CodePlaygroundPage;
