@@ -3,15 +3,22 @@
 @tailwind utilities;
 @tailwind screens;
 
-textarea:focus, input:focus{
-    outline: none;
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
 .mainGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2,  550px);
-    grid-gap: 32px;
-    min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 550px);
+  grid-gap: 32px;
+  min-height: 0;
 }
 
+@media (max-width: 640px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 550px);
+  }
+}
