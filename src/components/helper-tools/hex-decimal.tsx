@@ -6,7 +6,7 @@ const HexDecimal: FC<{}> = () => {
   const [dec, setDec] = useState('');
 
   function calculate(hex: string, dec: string): void {
-    if (!hex.match(/^(\s*|[0-9a-fA-F]+)$/) || !dec.match(/(\s*|\d+)/)) return;
+    if (!hex.match(/^(\s*|[0-9a-fA-F]+)$/) || !dec.match(/^(\s*|[\d]+)$/)) return;
     setDec(dec);
     setHex(hex);
     if (hex !== '') {
@@ -18,7 +18,6 @@ const HexDecimal: FC<{}> = () => {
 
   return (
     <div>
-      <h2>Hex Decimal Converter</h2>
       <input
         type="text"
         placeholder="Hexadecimal"

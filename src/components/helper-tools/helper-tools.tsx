@@ -1,40 +1,67 @@
 'use client';
-import { FC, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import HexDecimal from './hex-decimal';
 import JsonValidation from './json-validation';
+import { ArrowLeftIcon, ArrowsPointingOutIcon } from '@heroicons/react/24/outline';
+import SearchInput from '../shared/search-input/search-input';
 
 const HelperTools: FC<{}> = () => {
   const [expanded, setExpanded] = useState('');
   let content = null;
+  const defaultTools: string[] = [
+    'Json Validator',
+    'Hex Decimal Converter',
+    'Date Lookup',
+    'Regex Matcher'
+  ];
+  const [tools, setTools] = useState([...defaultTools]);
 
   switch (expanded) {
-    case 'Json':
+    case 'Json Validator':
       content = <JsonValidation />;
+      break;
+    case 'Hex Decimal Converter':
+      content = <HexDecimal />;
+      break;
+    case 'Date Lookup':
+      content = <JsonValidation />;
+      break;
+    case 'Regex Matcher':
+      content = <JsonValidation />;
+      break;
+  }
+
+  function filterTools(event: FormEvent<HTMLInputElement>) {
+    setTools(
+      defaultTools.filter((type) =>
+        type.toLowerCase().includes(event.currentTarget.value.toLowerCase())
+      )
+    );
   }
 
   return (
-    <div>
-      <h2>Helper Tools</h2>
-
+    <div className={'rounded-md bg-white py-6 px-8 flex flex-col items-start gap-4'}>
+      <h2 className={'text-lg leading-7 font-medium'}>
+        {expanded === '' ? 'Helper Tools' : expanded}
+      </h2>
+      {expanded !== '' && (
+        <button className="bg-gray-200 p-2 rounded-lg" onClick={() => setExpanded('')}>
+          <ArrowLeftIcon className="w-6 mr-2 float-left" /> Helper Tools
+        </button>
+      )}
       {content}
       {expanded === '' && (
         <>
-          <input
-            type="text"
-            placeholder="Search"
-            className=""
-            onChange={(e) => console.log(e.target.value)}
-          />
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-200 p-4 rounded-lg">
-              <HexDecimal />
-            </div>
-            <div className="bg-gray-200 p-4 rounded-lg">
-              <JsonValidation />
-              <input type="button" value="Expand" onClick={() => setExpanded('Json')} />
-            </div>
-            <div className="bg-gray-200 p-4 rounded-lg">Regex matcher</div>
-            <div className="bg-gray-200 p-4 rounded-lg">Date lookup</div>
+          <SearchInput onInput={filterTools}></SearchInput>
+          <div className={'grid grid-cols-2 gap-4'}>
+            {tools.map((name) => (
+              <button
+                key={name}
+                className="bg-gray-200 p-4 rounded-lg"
+                onClick={() => setExpanded(name)}>
+                {name}
+              </button>
+            ))}
           </div>
         </>
       )}

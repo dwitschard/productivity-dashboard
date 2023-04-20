@@ -1,8 +1,9 @@
 'use client';
+import { ClipboardDocumentIcon } from '@heroicons/react/24/outline';
 import { FC, useState } from 'react';
 
 const JsonValidation: FC<{}> = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('Valid JSON');
   const [valid, setValid] = useState(true);
 
   function validate(json: string): void {
@@ -35,7 +36,7 @@ const JsonValidation: FC<{}> = () => {
       lineNumber.value = '';
       json.split('\n').forEach((line, index) => {
         if (lines == index + 1 && !isValid) {
-          lineNumber.value += '❌  ';
+          lineNumber.value += '❌';
         }
         lineNumber.value += index + 1 + '\n';
       });
@@ -53,34 +54,38 @@ const JsonValidation: FC<{}> = () => {
     }
   }
 
+  function copyToClipboard(): void {
+    const textArea = document.querySelector('textarea.code') as HTMLTextAreaElement;
+    var text = textArea.value;
+    navigator.clipboard.writeText(text);
+  }
+
   return (
-    <div>
-      <h2>JSON Validation</h2>
+    <>
       <p>
         {message}
-        {valid ? '✓' : '❌'}
+        {valid ? ' ✓' : ' ❌'}
       </p>
-      <div className="editor">
+      <div className="editor w-full">
         <textarea
-          cols={3}
+          cols={5}
           rows={10}
           readOnly
           value={1}
-          className="line-numbers w-auto float-left resize-none overflow-hidden text-right outline-none bg-gray-600 text-gray-100"></textarea>
+          className="line-numbers w-1/6 float-left resize-none overflow-hidden text-right outline-none bg-gray-600 text-gray-100"></textarea>
         <textarea
           rows={9}
           wrap="off"
           onChange={(e) => validate(e.target.value)}
           onScroll={() => scrollLineNumbers()}
-          className="code float-left w-auto h-60 resize-none overflow-x-auto"></textarea>
+          className="code float-left w-5/6 h-60 resize-none overflow-x-auto"></textarea>
       </div>
-      <input
-        type="button"
-        className="w-full"
-        value="Copy"
-        onClick={(e) => console.log('clicked')}
-      />
-    </div>
+      <button
+        className="w-10 float-none relative bottom-0 right-0"
+        onClick={() => copyToClipboard()}>
+        <ClipboardDocumentIcon />
+      </button>
+    </>
   );
 };
 
