@@ -45,7 +45,9 @@ const HelperTools: FC<{}> = () => {
         {expanded === '' ? 'Helper Tools' : expanded}
       </h2>
       {expanded !== '' && (
-        <button className="bg-gray-200 p-2 rounded-lg" onClick={() => setExpanded('')}>
+        <button
+          className="p-2 rounded-lg text-white bg-indigo-500 focus:outline-none hover:bg-indigo-600"
+          onClick={() => setExpanded('')}>
           <ArrowLeftIcon className="w-6 mr-2 float-left" /> Helper Tools
         </button>
       )}
@@ -57,7 +59,7 @@ const HelperTools: FC<{}> = () => {
             {tools.map((name) => (
               <button
                 key={name}
-                className="bg-gray-200 p-4 rounded-lg"
+                className="bg-gray-200 hover:bg-gray-300 p-4 rounded-lg"
                 onClick={() => setExpanded(name)}>
                 {name}
               </button>
